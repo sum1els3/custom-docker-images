@@ -1,0 +1,6 @@
+# sum1else/alpine-node:slim-latest
+# sum1else/alpine-node:slim-node16.14 (latest)
+FROM alpine:3.15.4
+
+RUN apk add --no-cache nodejs=16.14.2-r0 && \
+  node -v

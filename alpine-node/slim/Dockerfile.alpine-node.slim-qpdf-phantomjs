@@ -1,0 +1,16 @@
+# sum1else/alpine-node:slim-qpdf-phantomjs-latest
+# current latest image (sum1else/alpine-node:slim-node16.14)
+FROM sum1else/alpine-node:slim-qpdf-latest
+
+COPY dockerized-phantomjs.tar.gz ./
+COPY phantomjs-2.1.1-linux-x86_64.tar.bz2 ./
+
+RUN tar -zxvf ./dockerized-phantomjs.tar.gz -C ./
+
+RUN tar -jxvf ./phantomjs-2.1.1-linux-x86_64.tar.bz2 -C ./ \
+    && cp ./phantomjs-2.1.1-linux-x86_64/bin/phantomjs ./usr/bin/phantomjs \
+    && rm -f ./phantomjs-2.1.1-linux-x86_64.tar.bz2 \
+    && phantomjs --version
+
+RUN rm -f ./dockerized-phantomjs.tar.gz \
+    && rm -f ./phantomjs-2.1.1-linux-x86_64.tar.bz2

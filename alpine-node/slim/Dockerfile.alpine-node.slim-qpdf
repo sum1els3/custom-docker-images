@@ -1,0 +1,6 @@
+# sum1else/alpine-node:slim-qpdf-latest
+# current latest image (sum1else/alpine-node:slim-node16.14)
+FROM sum1else/alpine-node:slim-latest
+
+RUN apk update && \
+    apk add qpdf=10.4.0-r0
